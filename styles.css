@@ -1,0 +1,125 @@
+/* Estructura básica */
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle, #232526, #414345);
+    overflow: hidden;
+}
+
+/* Contenedor de la animación */
+.animation-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Contenedor para los círculos */
+.circle-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    animation: rotateContainer 10s infinite linear;
+}
+
+/* Estilo para los círculos */
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: #61dafb;
+    animation: colorShift 5s infinite ease-in-out, circleMovement 2.5s infinite ease-in-out;
+}
+
+/* Posicionando los círculos en un patrón 3D */
+#circle1 {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    animation-delay: 0s;
+}
+
+#circle2 {
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    animation-delay: 0.5s;
+}
+
+#circle3 {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    animation-delay: 1s;
+}
+
+#circle4 {
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    animation-delay: 1.5s;
+}
+
+/* Animación para rotar el contenedor de círculos */
+@keyframes rotateContainer {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Animación para cambiar los colores de los círculos */
+@keyframes colorShift {
+    0% {
+        background-color: #61dafb;
+    }
+    25% {
+        background-color: #ff6b6b;
+    }
+    50% {
+        background-color: #fddb3a;
+    }
+    75% {
+        background-color: #1dd1a1;
+    }
+    100% {
+        background-color: #61dafb;
+    }
+}
+
+/* Animación para el efecto de unión y separación de círculos */
+@keyframes circleMovement {
+    0%, 100% {
+        transform: scale(1) translateX(-50%) translateY(-50%);
+    }
+    50% {
+        transform: scale(0.5) translateX(-50%) translateY(-50%);
+    }
+}
+
+/* Estilo del texto "Loading" */
+.loading-text {
+    margin-top: 30px;
+    color: white;
+    font-size: 24px;
+    font-family: Arial, sans-serif;
+    letter-spacing: 5px;
+    animation: textPulse 2s infinite;
+}
+
+/* Animación para el texto "Loading" */
+@keyframes textPulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.3;
+    }
+}
